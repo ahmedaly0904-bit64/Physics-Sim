@@ -1,24 +1,36 @@
-# 🔭 Projectile Motion Simulator
+# ⚛️ Computational Physics Simulations
 
-A Computational Physics project that simulates projectile motion under different gravitational fields using **Python**.
+A collection of physics simulations built with **Python**, **NumPy**, and **Matplotlib**.
+This repository aims to bridge the gap between theoretical physics equations and visual code simulations.
 
-## 🚀 Features
-* **Physics Simulation:** Calculates trajectory based on initial velocity and gravity using Newton's equations.
-* **Interplanetary Comparison:** Simulates motion on **Earth**, **Moon**, and **Jupiter**.
-* **Vectorization:** Uses `NumPy` for efficient numerical visualization.
-* **Visualization:** Generates clear comparison graphs using `Matplotlib`.
+## 📂 Projects
 
-## 🛠️ Tech Stack
-* Python 3
-* NumPy
-* Matplotlib
-* Jupyter Notebook
+### 1. 🔭 Projectile Motion Simulator
+Simulating projectile trajectories under different gravitational fields.
 
-## 📊 Results
-The simulation shows that a projectile launched at $v_0 = 50 m/s$:
-* **On Earth:** Lands in ~10 seconds.
-* **On Jupiter:** Crushed by gravity, lands in ~4 seconds.
-* **On Moon:** Soars to ~780m height and stays airborne for ~60 seconds!
+* **Physics:** Newton's Equations of Motion ($y = v_0t - \frac{1}{2}gt^2$).
+* **Highlights:**
+    * Comparison between trajectories on **Earth** ($9.81 m/s^2$), **Moon** ($1.62 m/s^2$), and **Jupiter** ($24.79 m/s^2$).
+    * Using `NumPy` for vectorized calculations over time arrays.
+* **File:** [`Projectile.ipynb`](./Projectile.ipynb)
 
 ---
-*Created by Ahmed Aly - Student at Aswan University, Faculty of Science.*
+
+### 2. 🎲 2D Random Walk (The Drunkard's Walk)
+Simulating chaotic motion and diffusion phenomena (Brownian Motion).
+
+* **Physics:** Statistical Mechanics & Einstein's Diffusion Law ($Distance \propto \sqrt{N}$).
+* **Highlights:**
+    * Generating thousands of random steps efficiently without loops (Vectorization).
+    * Visualizing the chaotic path using `Matplotlib`.
+    * Verifying the theoretical root-mean-square distance.
+* **File:** [`Random_Walk.ipynb`](./Random_Walk.ipynb)
+
+## 🛠️ Tech Stack
+* **Python 3**
+* **NumPy** (Numerical Computing & Arrays)
+* **Matplotlib** (Data Visualization)
+* **Jupyter Notebook** (Interactive Environment)
+
+---
+*Created by [Ahmed Aly] - Student at Aswan University, Faculty of Science.*
