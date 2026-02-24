@@ -1,36 +1,80 @@
-# ⚛️ Computational Physics Simulations
+# Physics-Sim
 
-A collection of physics simulations built with **Python**, **NumPy**, and **Matplotlib**.
-This repository aims to bridge the gap between theoretical physics equations and visual code simulations.
+This repository collects small, self‑contained physics and numerical simulation projects intended for learning, teaching, and quick experimentation. Each subfolder contains one or more Jupyter notebooks plus a focused README that explains the underlying mathematics and how to run the code.
 
-## 📂 Projects
+## Projects Overview
 
-### 1. 🔭 Projectile Motion Simulator
-Simulating projectile trajectories under different gravitational fields.
+- **`mProject_0/` — Projectile motion**
+  - Constant‑gravity projectile motion in 2D without air resistance.
+  - The theoretical trajectory of a projectile launched with initial speed \(v_0\) and angle \(\theta\) (from horizontal) is
+    \[
+    x(t) = v_0 \cos\theta \, t, \qquad
+    y(t) = y_0 + v_0 \sin\theta \, t - \frac{1}{2} g t^2.
+    \]
+  - The notebook compares numerical trajectories with these analytic expressions and explores how the range
+    \[
+    R = \frac{v_0^2 \sin(2\theta)}{g}
+    \]
+    depends on launch angle.
 
-* **Physics:** Newton's Equations of Motion ($y = v_0t - \frac{1}{2}gt^2$).
-* **Highlights:**
-    * Comparison between trajectories on **Earth** ($9.81 m/s^2$), **Moon** ($1.62 m/s^2$), and **Jupiter** ($24.79 m/s^2$).
-    * Using `NumPy` for vectorized calculations over time arrays.
-* **File:** [`Projectile.ipynb`](./Projectile.ipynb)
+- **`mProject_1/` — Random walk**
+  - 2D random walk (drunkard’s walk) with independent steps in \(x\) and \(y\).
+  - Demonstrates that the typical displacement after \(N\) steps scales like
+    \[
+    \langle r^2 \rangle^{1/2} \propto \sqrt{N},
+    \]
+    a fundamental result in diffusion and stochastic processes.
 
----
+- **`Numerical Analysis/` — Numerical methods and dynamical systems**
+  - **`Numerical_Integration.ipynb`**: Approximates integrals
+    \[
+    I = \int_a^b f(x)\,\mathrm{d}x
+    \]
+    using the trapezoidal and Simpson rules, and compares numerical errors as the step size \(h\) is refined.
+  - **`Root_Finding.ipynb`**: Solves nonlinear equations \(f(x)=0\) using bisection and Newton–Raphson iterations
+    \[
+    x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}.
+    \]
+  - **`Logistic Map.ipynb`**: Iterates the logistic map
+    \[
+    x_{n+1} = r x_n (1 - x_n)
+    \]
+    and builds a bifurcation diagram showing period‑doubling and chaos as the control parameter \(r\) varies.
 
-### 2. 🎲 2D Random Walk (The Drunkard's Walk)
-Simulating chaotic motion and diffusion phenomena (Brownian Motion).
+See the README in each subfolder for more detailed mathematical background and notebook‑specific instructions.
 
-* **Physics:** Statistical Mechanics & Einstein's Diffusion Law ($Distance \propto \sqrt{N}$).
-* **Highlights:**
-    * Generating thousands of random steps efficiently without loops (Vectorization).
-    * Visualizing the chaotic path using `Matplotlib`.
-    * Verifying the theoretical root-mean-square distance.
-* **File:** [`Random_Walk.ipynb`](./Random_Walk.ipynb)
+## Requirements
 
-## 🛠️ Tech Stack
-* **Python 3**
-* **NumPy** (Numerical Computing & Arrays)
-* **Matplotlib** (Data Visualization)
-* **Jupyter Notebook** (Interactive Environment)
+- Python 3.8+
+- `numpy`
+- `matplotlib`
+- A Jupyter environment (`jupyterlab` or `notebook`)
 
----
-*Created by [Ahmed Aly] - Student at Aswan University, Faculty of Science.*
+You can install dependencies either from `requirements.txt` (if present) or manually:
+
+```bash
+pip install numpy matplotlib jupyterlab
+```
+
+## How to Run the Notebooks
+
+1. **Create and activate a virtual environment** (recommended).
+2. **Install dependencies**, e.g.
+   ```bash
+   pip install -r requirements.txt
+   ```
+   or
+   ```bash
+   pip install numpy matplotlib jupyterlab
+   ```
+3. **Start Jupyter** in the repository root:
+   ```bash
+   jupyter lab
+   ```
+   or
+   ```bash
+   jupyter notebook
+   ```
+4. Open the notebook of interest (e.g. `mProject_0/Projectile.ipynb`) and run the cells from top to bottom.
+
+Each project README suggests experiments and parameter changes to help you explore the underlying physics or numerical method.
