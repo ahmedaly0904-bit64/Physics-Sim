@@ -4,48 +4,45 @@ This notebook simulates a two‑dimensional random walk, visualizes individual p
 
 ## Mathematical Model
 
-Consider a particle starting at the origin 
-$\mathbf{r}_0 = (0,0)$. At each step $k = 1,\dots,N$, it takes a random displacement
-$$
-\Delta \mathbf{r}_k = (\Delta x_k, \Delta y_k),
-$$
+Consider a particle starting at the origin `r0 = (0, 0)`. At each step `k = 1,…,N`, it takes a random displacement
+
+`Δr_k = (Δx_k, Δy_k),`
+
 often chosen so that
-$$
-\langle \Delta x_k \rangle = 0, \quad
-\langle \Delta y_k \rangle = 0,
-$$
+
+`⟨Δx_k⟩ = 0`, &nbsp; `⟨Δy_k⟩ = 0`,
+
 and the steps are independent and identically distributed.
 
-The position after $N$ steps is
-$$
-\mathbf{r}_N = \sum_{k=1}^{N} \Delta \mathbf{r}_k.
-$$
+The position after `N` steps is
+
+`r_N = Σ_{k=1}^N Δr_k.`
+
 For many common step distributions (e.g. symmetric steps on a grid or Gaussian steps), the **mean‑squared displacement** obeys
-$$
-\langle r_N^2 \rangle = \langle \mathbf{r}_N \cdot \mathbf{r}_N \rangle
-  \propto N,
-$$
+
+`⟨r_N²⟩ ∝ N`,
+
 so the typical distance from the origin scales like
-$$
-\sqrt{\langle r_N^2 \rangle} \propto \sqrt{N}.
-$$
+
+`(⟨r_N²⟩)^(1/2) ∝ √N`.
+
 This is a discrete analogue of diffusion.
 
 ## What the Notebook Does
 
 - Generates a random walk in 2D using `numpy`:
-  - Draws random steps in $x$ and $y$.
-  - Computes the cumulative sum to obtain $(x_k, y_k)$ along the path.
+  - Draws random steps in `x` and `y`.
+  - Computes the cumulative sum to obtain `(x_k, y_k)` along the path.
 - Plots:
-  - The trajectory in the \(x\)–\(y\) plane.
+  - The trajectory in the `x–y` plane.
   - Optionally, the distance from the origin as a function of step number.
 - Estimates:
-  - Final displacement $r_N$.
-  - How $r_N$ or $r_N^2$ scales with the number of steps $N$.
+  - Final displacement `r_N`.
+  - How `r_N` or `r_N²` scales with the number of steps `N`.
 
 ## Key Parameters
 
-- `steps` — Total number of time steps $N$.
+- `steps` — Total number of time steps `N`.
 - (Optionally) Step size distribution or variance.
 
 ## Dependencies
@@ -74,6 +71,6 @@ pip install numpy matplotlib
 
 ## Experiments
 
-- Vary `steps` over a wide range and record the final displacement; check that it grows approximately like $\sqrt{N}$.
+- Vary `steps` over a wide range and record the final displacement; check that it grows approximately like `√N`.
 - Run multiple walks and average \(r_N^2\) over the ensemble to reduce statistical noise.
 - Change the step distribution (e.g. biased steps) and observe how the walk drifts in a preferred direction.
